@@ -2,8 +2,8 @@
   import { createEventDispatcher } from "svelte";
   const dispatch = createEventDispatcher();
   import Button from "../shared/button.svelte";
-  let fields = { question: " ", answer1: " ", answer2: " " };
-  let errors = { question: " ", answer1: " ", answer2: " " };
+  let fields = { question: " ", answerA: " ", answerB: " " };
+  let errors = { question: " ", answerA: " ", answerB: " " };
   let valid = false;
   const submitHandler = () => {
     valid = true;
@@ -18,18 +18,18 @@
 
     //validate answer1
 
-    if (fields.answer1.trim().length < 1) {
+    if (fields.answerA.trim().length < 1) {
       valid = false;
-      errors.answer1 = "Answer 1 cannot be empty";
+      errors.answerA = "Answer A cannot be empty";
     } else {
-      errors.answer1 = " ";
+      errors.answerA = " ";
     }
     //validate answer2
-    if (fields.answer2.trim().length < 1) {
+    if (fields.answerB.trim().length < 1) {
       valid = false;
-      errors.answer2 = " Answer 2 cannot be empty";
+      errors.answerB = " Answer B cannot be empty";
     } else {
-      errors.answer2 = " ";
+      errors.answerB = " ";
     }
 
     //add new Poll
@@ -79,16 +79,16 @@
   </div>
   <div class="form-field">
     <label for="answer1">Answer 1</label>
-    <input type="text" id="answer1" bind:value={fields.answer1} required />
+    <input type="text" id="answer1" bind:value={fields.answerA} required />
     <div class="error">
-      <p>{errors.answer1}</p>
+      <p>{errors.answerA}</p>
     </div>
   </div>
   <div class="form-field">
     <label for="answer2">Answer 2</label>
-    <input type="text" id="answer2" bind:value={fields.answer2} required />
+    <input type="text" id="answer2" bind:value={fields.answerB} required />
     <div class="error">
-      <p>{errors.answer2}</p>
+      <p>{errors.answerB}</p>
     </div>
   </div>
   <Button type="secondary" flat={true}>Add Poll</Button>

@@ -1,4 +1,5 @@
 <script>
+  import PollDetails from "./pollDetails.svelte";
   export let polls = [];
 </script>
 
@@ -9,19 +10,20 @@
     grid-gap: 8px;
     padding: 8px;
   }
-  .poll {
-    padding: 8px;
-    background: lightgray;
+  @media (max-width: 560px) {
+    .poll-list {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
 
 <article class="poll-list">
 
   {#each polls as poll (poll.id)}
-    <section class="poll">
-      <h4 class="poll-question">{poll.question}</h4>
+    <section>
+      <PollDetails {poll} on:vote />
     </section>
   {:else}
-    <p>There is not poll yet</p>
+    <p>There is no poll yet</p>
   {/each}
 </article>
