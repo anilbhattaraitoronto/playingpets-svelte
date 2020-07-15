@@ -12,34 +12,8 @@
     activeTab = e.detail;
   };
 
-  let polls = [
-    {
-      id: 1,
-      question: "Cat or Dog?",
-      answerA: "Cat",
-      answerB: "Dog",
-      votesA: 8,
-      votesB: 10
-    }
-  ];
   const addPoll = e => {
-    const poll = e.detail;
-    polls = [poll, ...polls];
-    console.log(polls);
     activeTab = "Current Polls";
-  };
-
-  const handleVote = e => {
-    const { id, option } = e.detail;
-    let copiedPolls = [...polls];
-    let upvotedPoll = copiedPolls.find(poll => poll.id === id);
-    if (option === "a") {
-      upvotedPoll.votesA++;
-    }
-    if (option === "b") {
-      upvotedPoll.votesB++;
-    }
-    polls = copiedPolls;
   };
 </script>
 
@@ -56,7 +30,7 @@
 <main>
   <Tabs {activeTab} {tabItems} on:tabChange={tabChange} />
   {#if activeTab === 'Current Polls'}
-    <PollList {polls} on:vote={handleVote} />
+    <PollList />
   {:else}
     <CreatePollForm on:add={addPoll} />
   {/if}
