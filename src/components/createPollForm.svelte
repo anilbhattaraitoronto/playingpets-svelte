@@ -43,7 +43,8 @@
 
 <style>
   form {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     margin: 0 auto;
     text-align: center;
     padding: 40px;
