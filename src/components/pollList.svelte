@@ -1,5 +1,7 @@
 <script>
-  import { onMount, onDestroy } from "svelte";
+  //   import { onMount, onDestroy } from "svelte";
+  import { fade, slide, scale } from "svelte/transition";
+  import { flip } from "svelte/animate";
   import PollStore from "../stores/pollstore.js";
   import PollDetails from "./pollDetails.svelte";
   //   export let polls = [];
@@ -31,7 +33,7 @@
 <article class="poll-list">
 
   {#each $PollStore as poll (poll.id)}
-    <section>
+    <section in:fade out:scale|local animate:flip={{ duration: 500 }}>
       <PollDetails {poll} />
     </section>
   {:else}

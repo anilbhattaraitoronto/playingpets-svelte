@@ -15,6 +15,9 @@
   const addPoll = e => {
     activeTab = "Current Polls";
   };
+
+  import { tweened } from "svelte/motion";
+  const value = tweened(0);
 </script>
 
 <style>
