@@ -1,4 +1,5 @@
 /client/node_modules/
 /client/public/build/
-
+secrets.js
 .DS_Store
+node_modules
